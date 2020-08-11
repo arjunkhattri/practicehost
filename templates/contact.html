@@ -1,0 +1,297 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Section: Contact Us -->
+    <section class="section">
+      <div class="container">
+        <h2 class="center margin-tb">
+          Contact<span class="t-color"> Us</span>
+        </h2>
+        <div class="row">
+          <div class="col s12 m8 offset-m2 l8 xl8">
+            <form action="" method="POST">
+               {% csrf_token %}
+              <div class="card-panel z-depth-5 margin-tb hoverable">
+                <h5 class="center t-color">Leave Us Your Message</h5>
+                <br />
+                <div class="input-field">
+                  <i class="material-icons prefix t-color">account_circle</i>
+                  <input type="text" name="username" required />
+                  <label data-error="Invalid" data-success="Valid"
+                    >Full Name</label
+                  >
+                </div>
+                <div class="input-field">
+                  <i class="material-icons prefix t-color">address</i>
+                  <input type="text" name="address" required />
+                  <label data-error="Invalid" data-success="Valid"
+                    >Address</label
+                  >
+                </div>
+                <div class="input-field">
+                  <i class="material-icons prefix t-color">phone</i>
+                  <input id="phone" name="contact" type="tel" required />
+                  <label data-error="Invalid" data-success="Valid" for="phone"
+                    >Contact Number</label
+                  >
+                </div>
+                <div class="input-field">
+                  <i class="material-icons prefix t-color">email</i>
+                  <input type="email" name="email" class="validate" required />
+                  <label data-error="Invalid" data-success="Valid"
+                    >Email Address</label
+                  >
+                </div>
+                <div class="input-field">
+                  <i class="material-icons prefix t-color">message</i>
+                  <textarea
+                    placeholder="Message"
+                    id="message"
+                    name="message"
+                    class="materialize-textarea"
+                    required
+                  ></textarea>
+                  <label data-error="Invalid" data-success="Valid" for="message"
+                    >Message</label
+                  >
+                </div>
+                <div class="row">
+                  <div
+                    class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4 center-align"
+                  >
+                    <input
+                      type="submit"
+                      name="submit"
+                      value="submit"
+                      class="btn butn"
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col l4 xl4 hide-on-med-and-down margin-tb">
+            <img src="{% static 'img/contactUs.png' %}" class="responsive-img" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section Map & Follow Us -->
+    <section class="section grey lighten-4">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col s12 m12 l6 xl6">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.2981711594325!2d85.325088414539!3d27.73894783071057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19bc0574fed7%3A0xfe50fbd5972a6fb7!2sNepal%20Learning%20Edge!5e0!3m2!1sen!2snp!4v1592456862719!5m2!1sen!2snp"
+              width="100%"
+              height="450"
+              frameborder="0"
+              style="border: 0;"
+              allowfullscreen=""
+              aria-hidden="false"
+              tabindex="0"
+            ></iframe>
+          </div>
+
+
+          <div class="col s12 m12 l6 xl6 b-color center white-text">
+            <br />
+            <h5 style="font-weight: bolder;">Nepal Learning Edge</h5>
+            <p style="margin: 0;">Bagmati, Nepal</p>
+            <p style="margin: 0;">Basundhara, Kathmandu</p>
+            <br />
+            <div class="middle">
+              <a class="scbtn" href="{{a.facebook_link}}">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="scbtn" href="{{a.twitter_link}}">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="scbtn" href="{{a.instagram_link}}">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="scbtn" href="{{a.youtube_link}}">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+            <br />
+            <a href="#modalApply" class="btn btn-large btnn1 modal-trigger black-text">Apply Now</a>
+            <br />
+            <br />
+            <div class="row">
+              <div
+                class="col s8 offset-s2 m6 offset-m3 l8 offset-l2 xl8 offset-xl2"
+              >
+                <div class="card-panel z-depth-5 grey darken-4 white-text">
+                  <p style="margin-top: 0; font-weight: bold;">
+                    For support or any questions:
+                  </p>
+                  <div class="row">
+                    <div
+                      class="col s12 m12 l12 xl4 center"
+                      style="margin-bottom: 0;"
+                    >
+                      <h5 style="font-size: 12px; margin: 0; font-weight: 700;">
+                        Email
+                        <i
+                          class="material-icons"
+                          style="font-size: 10px; font-weight: 100;"
+                          >email</i
+                        >
+                        :
+                      </h5>
+                    </div>
+                    {% for a in social_info %}
+                    <div class="col s12 m12 l12 xl4">
+                      <h5 style="font-size: 12px; margin: 0; font-weight: 700;">
+                        {{a.email}}
+                      </h5>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="row">
+                    <div class="col s12 m12 l12 xl4 center">
+                      <h5 style="font-size: 12px; margin: 0; font-weight: 700;">
+                        Phone
+                        <i
+                          class="material-icons"
+                          style="font-size: 10px; font-weight: 100;"
+                          >phone</i
+                        >
+                        :
+                      </h5>
+                    </div>
+                    {% for b in social_info %}
+                    <div class="col s12 m12 l12 xl4">
+                      <h5 style="font-size: 12px; margin: 0; font-weight: 700;">
+                        {{b.contact}}
+                      </h5>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Section Contact Our Team -->
+    <section class="section">
+      <div class="container">
+        <h2 class="center margin-tb">
+          Contact <span class="t-color"> Our</span> Team
+        </h2>
+        <div class="row">
+          <div class="col s8 offset-s2 m8 offset-m2 l8 offset-l2 xl8 offset-xl2 margin-tb">
+            <div class="row">
+              {% for d in team_card %}
+              <div class="col s12 m12 l6 xl6">
+                <div class="card center hoverable">
+                  <div class="card-image">
+                    <img src="{{d.image.url}}" class="responsive-img" />
+                  </div>
+                  <div class="card-content">
+                    <h5 style="margin-top: 0;">
+                      {{d.fullname}}
+                      <span class="card-title tf-color">{{d.designation}}</span>
+                    </h5>
+                    <div>
+                      <a class="sbtn" href="{{d.facebook_link}}">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a class="sbtn" href="{{d.twitter_link}}">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a class="sbtn" href="{{d.instagram_link}}">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="card-action center">
+                    <div class="row">
+                      <div class="col s12 m12 l12 xl4 center">
+                        <h5
+                          style="
+                            font-size: 12px;
+                            margin-top: 0;
+                            font-weight: 700;
+                          "
+                        >
+                          Email
+                          <i
+                            class="material-icons"
+                            style="font-size: 10px; font-weight: 100;"
+                            >email</i
+                          >
+                          :
+                        </h5>
+                      </div>
+                      <div class="col s12 m12 l12 xl4">
+                        <h5
+                          style="
+                            font-size: 12px;
+                            margin-top: 0;
+                            font-weight: 700;
+                          "
+                        >
+                          {{d.email}}
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s12 m12 l12 xl4 center">
+                        <h5
+                          style="
+                            font-size: 12px;
+                            margin-top: 0;
+                            font-weight: 700;
+                          "
+                        >
+                          Phone
+                          <i
+                            class="material-icons"
+                            style="font-size: 10px; font-weight: 100;"
+                            >phone</i
+                          >
+                          :
+                        </h5>
+                      </div>
+                      <div class="col s12 m12 l12 xl4">
+                        <h5
+                          style="
+                            font-size: 12px;
+                            margin-top: 0;
+                            font-weight: 700;
+                          "
+                        >
+                          {{d.contact}}
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+{% endblock %}
+

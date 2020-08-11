@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Section: Our Story -->
+    <section class="section grey lighten-4">
+      <div class="container">
+        <h2 class="center margin-tb">Our<span class="t-color"> Story</span></h2>
+        <div class="row">
+          <div class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4">
+            <img src="{% static 'img/story.png' %}" class="responsive-img" />
+          </div>
+        </div>
+        <div class="row">
+          {% for desc in content %}
+          <div class="col s12 m12 l12 xl12 justify">
+            <p>
+              {{desc.Our_story | safe}}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Section: Our Mission -->
+    <section class="section">
+      <div class="container">
+        <h2 class="center margin-tb">
+          Our<span class="t-color"> Mission</span>
+        </h2>
+        <div class="row">
+          <div
+            class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4"
+          >
+            <img src="{% static 'img/mission.png' %}" class="responsive-img" />
+          </div>
+        </div>
+        <div class="row">
+          {% for q in content %}
+          <div class="col s12 m12 l12 xl12 justify">
+            <p>
+              {{q.Our_mission | safe}}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Our Team -->
+    <section class="section grey lighten-4">
+      <div class="container">
+        <h2 class="center margin-tb">Our<span class="t-color"> Team</span></h2>
+
+        <div class="row">
+         {% for c in team_card %}
+          <div class="col s12 m6 l4 xl4 justify">
+            <div class="card large center">
+              <div class="card-image">
+                <img src={{c.image.url}}/>
+<!--                {{c.image.url}}-->
+              </div>
+              <div class="card-content">
+                <h5 style="margin-top: 0;">
+                  {{c.fullname}}
+                  <span class="card-title tf-color">{{c.title}}</span>
+                </h5>
+                <div>
+                  <a class="sbtn" href="{{c.facebook_link}}">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a class="sbtn" href="{{c.twitter_link}}">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a class="sbtn" href="{{c.instagram_link}}">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-action">
+                <a class="modal-trigger" href="#{{c.id}}"
+                  ><span class="t-color">View Full Profile</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- MODAL -->
+
+          <div id="{{c.id}}" class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <h4 class="t-color">{{c.fullname}}</h4>
+              <h5>{{c.designation}}</h5>
+              <div>
+                <a class="sbtn" href="{{c.facebook_link}}">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="sbtn" href="{{c.twitter_link}}">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a class="sbtn" href="{{c.instagram_link}}">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+              <br />
+              <p>
+                {{c.Bio}}
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a
+                href="#!"
+                class="modal-action modal-close waves-effect waves-green btn-flat t-color"
+                >Ok</a
+              >
+            </div>
+          </div>
+         {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Section: Work With Us -->
+    <section class="section b-color">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 center white-text">
+            <br />
+            <h2>Want to Work With Us?</h2>
+            <br />
+<!--            <button class="btn white black-text">Apply Now</button>-->
+             <a href="#modalApply" class="btn btn-large btnn1 modal-trigger black-text">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+{% endblock %}
+

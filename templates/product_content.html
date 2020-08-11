@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Section: Product & Policies -->
+    <section class="section">
+        {% for i in items %}
+      <div class="container">
+        <h3 class="center margin-tb">{{i.title | safe}}</span></span></h3>
+        <div class="row">
+        </div>
+        <div class="row margin-tb justify">
+        {{i.description | safe }}
+        </div>
+      </div>
+        {% endfor %}
+    </section>
+
+    <!-- Floating Button -->
+    <div class="fixed-action-btn go-to-top">
+      <button class="btn-floating btn-small orange">
+        <a href="{{navTop}}" class="btop"
+        ><i class="material-icons black-text" style="font-size: 40px;"
+        >arrow_drop_up</i
+        ></a
+        >
+      </button>
+    </div>
+
+
+{% endblock %}

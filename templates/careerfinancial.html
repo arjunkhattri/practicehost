@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Section Career & Financial -->
+     <!-- Section Career -->
+    <section class="section grey lighten-4">
+     {% for category in categories %}
+      <div class="container">
+
+        <h4 class="center margin-tb">{{category}}</h4>
+        <div class="row">
+           {% for item in category.get_sessions %}
+          <div class="col s12 m4 l4 xl4">
+            <!-- CARD REVEAL -->
+            <div class="card medium z-depth-4 hoverable">
+              <div class="card-image waves-effect waves-light waves-block">
+                <img class="activator" src="{{item.image.url}}" />
+<!--                <span class="card-title tf-color">News</span>-->
+              </div>
+
+              <div class="card-content">
+                <span class="card-title tf-color">{{item.title}}</span>
+                <h5 class="tfs-color">{{item.date_created}}</h5>
+                <p>
+                 {{item.description | safe}}
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="#!">
+                  <span class="t-color waves-effect waves-light activator">Read More</span
+                  ></a
+                >
+              </div>
+
+              <!-- inside of reveal -->
+              <div class="card-reveal">
+                <span class="card-title tr-color"
+                  >{{item.title}}
+                  <i class="material-icons right">close</i>
+                </span>
+                <p>
+                  {{item.description | safe}}
+                </p>
+                <a href="../careerfinancialdetail/{{item.id}}">
+                  <button class="mg-auto btn butn">Read More</button></a>
+              </div>
+            </div>
+          </div>
+           {% endfor %}
+
+        </div>
+
+<!--         Pagination-->
+        <div class="row">
+            {% if items.has_other_pages %}
+              <ul class = "pagination">
+                {% if items.has_previous %}
+                  <li><a href="?page={{items.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                  <li class="disabled">&laquo;</span></li>
+                {% endif %}
+                {% for i in items.paginator.page_range %}
+                  {% if items.number == i %}
+                      <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                  {% endif %}
+                {% endfor %}
+                {% if items.has_next %}
+                    <li><a href="?page={{items.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                     <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+              </ul>
+            {% endif %}
+             <div class="col s12 m6 l6 xl6 right">
+              <a href="/careerfinancial" class="btn butn right">View all</a>
+<!--               <a href="/?all3=True" class="btn butn right">View Less</a>
+dynamic variable in href-->
+             </div>
+         </div>
+      </div>
+     {% endfor %}
+    </section>
+
+
+{% endblock %}

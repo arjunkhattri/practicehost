@@ -1,0 +1,245 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Trainings -->
+    <section class="section center">
+      <div class="container">
+        <h2 class="center margin-tb">
+          Our<span class="t-color"> Training</span>
+        </h2>
+      </div>
+    </section>
+
+    <!-- Section 1 -->
+    <section class="section center">
+      <div class="container">
+       {% for category in categories %}
+        <div class="row">
+          <div class="col s12 m12 l12 xl12">
+
+            <div class="section">
+              <div class="row">
+                <div class="col s12 m12 l12 xl12">
+                  <h4 style="font-size: 32px;" class="center">
+                    {{category}}
+                  </h4>
+                </div>
+              </div>
+              {% for i in category.get_training_sessions %}
+              <div class="row">
+
+                <div class="col s12 m6 offset-m3 l4 xl4">
+                  <img
+                    src="{{i.image.url}}"
+                    class="responsive-img"
+                    alt=""
+                    style="padding: 5px;"
+                  />
+                </div>
+                <div
+                  class="col s12 m12 l8 xl8 justify"
+                  style="padding: 5px 10px;"
+                >
+                  <p style="margin: 0;">
+                    {{i.description|safe}}
+                  </p>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+          </div>
+          <a href="#modalS" class="btn btn-large butn margin-b modal-trigger">Book Now</a>
+        </div>
+       {% endfor %}
+      </div>
+    </section>
+
+
+    <!-- Floating Button -->
+    <div class="fixed-action-btn go-to-top">
+      <button class="btn-floating btn-small orange">
+        <a href="#navTop" class="btop"
+          ><i class="material-icons black-text" style="font-size: 40px;"
+            >arrow_drop_up</i
+          ></a
+        >
+      </button>
+    </div>
+
+    <!-- Modal For Apply Now-->
+    <div id="modalApply" class="modal">
+      <div class="modal-content">
+        <h5 class="center-align margin-b">
+          Choose the program you want to apply for:
+        </h5>
+        <a href="#modalF" class="modal-trigger">
+          <div class="card-panel z-depth-5 hoverable">
+            <h5 style="font-size: 18px; font-weight: 450;" class="t-color">
+              1. Financial Advisor
+            </h5>
+          </div>
+        </a>
+        <a href="#modalS" class="modal-trigger">
+          <div class="card-panel z-depth-5 hoverable">
+            <h5 style="font-size: 18px; font-weight: 450;" class="t-color">
+              2. Trainings
+            </h5>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- Modal For Financial Ambassador-->
+    <div id="modalF" class="modal">
+      <div class="modal-content">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-panel z-depth-5">
+            <h5 class="center t-color">Please Fill Up the Form</h5>
+            <br />
+            <div class="input-field">
+              <i class="material-icons prefix t-color">account_circle</i>
+              <input type="text" name="username" required />
+              <label data-error="Invalid" data-success="Valid">Full Name</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">address</i>
+              <input type="text" name="address" required />
+              <label data-error="Invalid" data-success="Valid">Address</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">phone</i>
+              <input id="phone" name ="phone" type="tel" required />
+              <label data-error="Invalid" data-success="Valid" for="phone"
+                >Contact Number</label
+              >
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">email</i>
+              <input type="email" name="email" class="validate" required />
+              <label data-error="Invalid" data-success="Valid"
+                >Email Address</label
+              >
+            </div>
+            <p class="center margin-b">
+              Please Upload Your Latest CV, Certificates(Character, Marksheet),
+              Citizenship & Photo (Latest).
+            </p>
+            <!-- CV -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload CV</span>
+                <input type="file", name="cv" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Citizenship -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload Citizenship</span>
+                <input type="file", name="citizenship" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Certificates -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload Certificates</span>
+                <input type="file", name = "certificates" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Photo -->
+            <div class="file-field input-field margin-b">
+              <div class="btn butn">
+                <span>Upload Photo</span>
+                <input type="file", name="photo" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4 center-align"
+              >
+                <input
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn butn"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal For Skill Development & Life Insurance Awareness Session-->
+    <div id="modalS" class="modal">
+      <div class="modal-content">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-panel z-depth-5">
+            <h5 class="center t-color">Please Fill Up the Form</h5>
+            <br />
+            <div class="input-field">
+              <select multiple>
+                <option value="" disabled selected>Select Option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+                <option value="5">Option 5</option>
+              </select>
+              <label>Please select the trainings you want to apply for:</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">account_circle</i>
+              <input type="text" name="username" required />
+              <label data-error="Invalid" data-success="Valid">Full Name</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">address</i>
+              <input type="text" name="address" required />
+              <label data-error="Invalid" data-success="Valid">Address</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">phone</i>
+              <input id="phone" type="tel", name="contact" required />
+              <label data-error="Invalid" data-success="Valid" for="phone"
+                >Contact Number</label
+              >
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">email</i>
+              <input type="email" name="email" class="validate" required />
+              <label data-error="Invalid" data-success="Valid"
+                >Email Address</label
+              >
+            </div>
+            <div class="row">
+              <div
+                class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4 center-align"
+              >
+                <input
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn butn"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

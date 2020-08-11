@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Gallery -->
+    <section class="section">
+       {% for i in item.all %}
+      <div class="container">
+        <h5 class="margin-tb center">
+          {{i.title}}
+        </h5>
+        <!--multiple image upload -->
+
+        <div class="row">
+          {% for p in photo.all %}
+          <div class="col s6 m3 l3 xl3">
+            <img
+              src="{{p.image.url}}"
+              class="materialboxed"
+              width="100%"
+              data-caption="Career Counseling & Financial Development Session"/>
+            <br>
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+      {% endfor %}
+    </section>
+
+{% endblock %}
+

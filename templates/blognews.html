@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Section News & Blog -->
+
+    <section class="section grey lighten-4">
+      {% for category in cat %}
+      <div class="container">
+        <h2 class="center margin-tb">{{category}}</h2>
+        <div class="row">
+          {% for item in category.get_blog_news_category %}
+          <div class="col s12 m4 l4 xl4">
+            <!-- CARD REVEAL -->
+            <div class="card medium z-depth-4 hoverable">
+              <div class="card-image waves-effect waves-light waves-block">
+                <img class="activator" src="{{item.image.url}}" />
+<!--                <span class="card-title tf-color">News</span>-->
+              </div>
+
+              <div class="card-content">
+                <span class="card-title tf-color">{{item.title}}</span>
+                <h5 class="tfs-color">{{item.date_created}}</h5>
+                <p>
+                 {{item.description | safe}}
+                </p>
+              </div>
+              <div class="card-action">
+                <a href="#!">
+                  <span class="t-color waves-effect waves-light activator">Read More</span
+                  ></a
+                >
+              </div>
+
+              <!-- inside of reveal -->
+              <div class="card-reveal">
+                <span class="card-title tr-color"
+                  >{{item.title}}
+                  <i class="material-icons right">close</i>
+                </span>
+                <p>
+                  {{item.description | safe}}
+                </p>
+                <a href="../blognewsdetail/{{item.id}}">
+                  <button class="mg-auto btn butn">Read More</button></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+<!--        <div class="row">-->
+<!--            <div class="col s12-center m6 l6 xl6">-->
+<!--            {% if news_p.has_other_pages %}-->
+<!--              <ul class = "pagination">-->
+<!--                {% if news_p.has_previous %}-->
+<!--                  <li><a href="?page2={{news_p.previous_page_number }}">&laquo;</a></li>-->
+<!--                {% else %}-->
+<!--                  <li class="disabled">&laquo;</span></li>-->
+<!--                {% endif %}-->
+<!--                {% for i in news_p.paginator.page_range %}-->
+<!--                  {% if news_p.number == i %}-->
+<!--                      <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>-->
+<!--                  {% endif %}-->
+<!--                {% endfor %}-->
+<!--                {% if news_p.has_next %}-->
+<!--                    <li><a href="?page2={{ news_p.next_page_number }}">&raquo;</a></li>-->
+<!--                {% else %}-->
+<!--                     <li class="disabled"><span>&raquo;</span></li>-->
+<!--                {% endif %}-->
+<!--              </ul>-->
+<!--            {% endif %}-->
+<!--         </div>-->
+<!--        </div>-->
+      </div>
+      {% endfor %}
+    </section>
+    <!-- Section Blog -->
+<!--    <section class="section">-->
+<!--      <div class="container">-->
+<!--        <h2 class="center margin-tb">Bl<span class="t-color">o</span>gs</h2>-->
+
+<!--        <div class="row">-->
+<!--          {% for b in blogs_p %}-->
+<!--          <div class="col s12 m4 l4 xl4">-->
+<!--            &lt;!&ndash; CARD REVEAL &ndash;&gt;-->
+<!--            <div class="card medium z-depth-4 hoverable">-->
+<!--              <div class="card-image waves-effect waves-light waves-block">-->
+<!--                <img class="activator" src="{{b.image.url}}" />-->
+<!--                <span class="card-title tf-color">News</span>-->
+<!--              </div>-->
+
+<!--              <div class="card-content">-->
+<!--                <span class="card-title tf-color">{{b.title}}</span>-->
+<!--                <h5 class="tfs-color">{{b.date_created}}</h5>-->
+<!--                <p>-->
+<!--                  {{b.description | safe}}-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="card-action">-->
+<!--                <a href="#!"-->
+<!--                  ><span class="t-color waves-effect waves-light activator"-->
+<!--                    >Read More</span-->
+<!--                  ></a-->
+<!--                >-->
+<!--              </div>-->
+
+<!--              &lt;!&ndash; inside of reveal &ndash;&gt;-->
+<!--              <div class="card-reveal">-->
+<!--                <span class="card-title tr-color"-->
+<!--                  >{{b.title}}-->
+<!--                  <i class="material-icons right">close</i>-->
+<!--                </span>-->
+<!--                <p>-->
+<!--                  {{b.description | safe}}-->
+<!--                </p>-->
+<!--                <a href="../{{b.id}}"-->
+<!--                  ><button class="mg-auto btn butn">Read More</button></a-->
+<!--                >-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          {% endfor %}-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Pagination &ndash;&gt;-->
+<!--        <div class="row">-->
+<!--           <div class="col s12-center m6 l6 xl6">-->
+<!--            {% if blogs_p.has_other_pages %}-->
+<!--              <ul class = "pagination">-->
+<!--                {% if blogs_p.has_previous %}-->
+<!--                  <li><a href="?page2={{blogs_p.previous_page_number }}">&laquo;</a></li>-->
+<!--                {% else %}-->
+<!--                  <li class="disabled">&laquo;</span></li>-->
+<!--                {% endif %}-->
+<!--                {% for i in blogs_p.paginator.page_range %}-->
+<!--                  {% if blogs_p.number == i %}-->
+<!--                      <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>-->
+<!--                  {% endif %}-->
+<!--                {% endfor %}-->
+<!--                {% if blogs_p.has_next %}-->
+<!--                    <li><a href="?page2={{ blogs_p.next_page_number }}">&raquo;</a></li>-->
+<!--                {% else %}-->
+<!--                     <li class="disabled"><span>&raquo;</span></li>-->
+<!--                {% endif %}-->
+<!--              </ul>-->
+<!--            {% endif %}-->
+<!--         </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+
+{% endblock %}

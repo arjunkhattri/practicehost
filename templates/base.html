@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'css/materialize.min.css' %}"
+      media="screen,projection"
+    />
+
+    <!-- Import Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    />
+
+    <!-- Import Main Css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> NLE </title>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav class="grey lighten-5 black-text">
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo logos black-text">
+            <img src="{% static 'img/Logo.jpg' %}" width="65" height="50" alt="" />
+            Nepal Learning Egde</a>
+          <a href="#" data-activates="mobile-nav" class="button-collapse">
+            <i class="material-icons black-text">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down mg-rl">
+            <li>
+              <a class="black-text" href="{% url 'index' %}">Home</a>
+            </li>
+            <li>
+              <a class="black-text" href="{% url 'about' %}">About Us</a>
+            </li>
+            <li>
+                  <a class="black-text dropdown-trigger" data-activates="dropdown1"
+                    data-beloworigin="true" href="#">Life Insurance</a>
+                </li>
+                <!-- Dropdown Structure -->
+                <ul id="dropdown1" class="dropdown-content collection">
+                  <li>
+                    <a class="black-text" href="{% url 'info' %}">Information</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li>
+                    <a class="black-text" href="{% url 'product' %}">Product & Policy</a>
+                  </li>
+                  <li class="divider" tabindex="-1"></li>
+
+                </ul>
+            <li>
+              <a class="black-text" href="{% url 'gallery' %}">Gallery</a>
+            </li>
+            <li>
+              <a class="black-text" href="{% url 'career' %}">Career</a>
+            </li>
+            <li>
+              <a class="black-text" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- Side Nav For Mobile -->
+    <ul id="mobile-nav" class="side-nav">
+      <li>
+        <div class="user-view logo-img center-align">
+          <a href="#!">
+            <img src="{% static 'img/Logo.jpg' %}" width="75" height="55" />
+            <h5 class="black-text name logo-title">Nepal Learning Edge</h5>
+          </a>
+          <a>
+            <span class="black-text email logo-email">nlenepal@gmail.com</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li>
+        <a class="black-text" href="{% url 'index' %}">Home</a>
+      </li>
+      <li>
+        <a class="black-text" href="{% url 'about' %}">About Us</a>
+      </li>
+<!--      <li>-->
+<!--        <a class="black-text dropdown-trigger" data-activates="dropdown1"-->
+<!--           data-beloworigin="true" href="#">Life Insurance</a>-->
+<!--      </li>-->
+<!--      &lt;!&ndash; Dropdown Structure &ndash;&gt;-->
+<!--        <ul id="dropdown1" class="dropdown-content collection">-->
+<!--            <li>-->
+<!--              <a class="black-text" href="{% url 'info' %}">Information</a>-->
+<!--            </li>-->
+<!--            <li class="divider" tabindex="-1"></li>-->
+<!--            <li>-->
+<!--              <a class="black-text" href="{% url 'product' %}">Product & Policy</a>-->
+<!--            </li>-->
+<!--            <li class="divider" tabindex="-1"></li>-->
+
+<!--        </ul>-->
+      <li>
+        <a class="black-text" href="{% url 'gallery' %}">Gallery</a>
+      </li>
+      <li>
+        <a class="black-text" href="{% url 'career' %}">Career</a>
+      </li>
+      <li>
+        <a class="black-text" href="{% url 'contact' %}">Contact Us</a>
+      </li>
+      <li>
+        <br />
+        <a href="#about" class="btn-large butn">Join Now</a>
+      </li>
+    </ul>
+    <!-- Floating Button -->
+    <div class="fixed-action-btn">
+      <button class="btn-floating btn-small orange">
+        <a href="{{navTop}}"
+          ><i class="material-icons black-text" style="font-size: 40px;"
+            >arrow_drop_up</i
+          ></a
+        >
+      </button>
+    </div>
+
+{% block content %}
+
+{% endblock %}
+    <!-- Footer -->
+    <footer class="page-footer grey lighten-3">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m12 l4 xl4 black-text">
+            <h4>Links</h4>
+            <ul>
+              <li>
+                <a class="black-text" href="{% url 'index' %}">Home</a>
+              </li>
+              <li>
+                <a class="black-text" href="{% url 'about' %}">About Us</a>
+              </li>
+              <li>
+                <a class="black-text" href="insurance.html">Life Insurance</a>
+              </li>
+              <li>
+                <a class="black-text" href="{% url 'gallery' %}">Gallery</a>
+              </li>
+              <li>
+                <a class="black-text" href="{% url 'career' %}">Career</a>
+              </li>
+              <li>
+                <a class="black-text" href="{% url 'contact' %}">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col s12 m12 l4 xl4 black-text">
+            <h4>Location</h4>
+            <p>Bagmati, Nepal</p>
+            <p>Basundhara, Kathmandu</p>
+          </div>
+          <div class="col s12 m12 l4 xl4">
+            <h4 class="black-text">Follow Us</h4>
+           {% for l in social_info %}
+            <div class="middle">
+              <a class="sbtn" href="{{l.facebook_link}}">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="sbtn" href="{{l.twitter_link}}">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="sbtn" href="{{l.instagram_link}}">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="sbtn" href="{{l.youtube_link}}">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+           {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright blue-grey darken-4">
+        <div class="container">
+          Autovity © 2020
+          <a class="grey-text text-lighten-4 right" href="{{about}}">
+            <i class="material-icons left">keyboard_arrow_up</i> Back To Top
+          </a>
+        </div>
+      </div>
+    </footer>
+
+
+     <!-- Modal For Apply Now-->
+    <div id="modalApply" class="modal">
+      <div class="modal-content">
+        <h5 class="center-align margin-b">
+          Choose the program you want to apply for:
+        </h5>
+        <a href="#modalF" class="modal-trigger">
+          <div class="card-panel z-depth-5 hoverable">
+            <h5 style="font-size: 18px; font-weight: 450;" class="t-color">
+              1. Financial Advisor
+            </h5>
+          </div>
+        </a>
+        <a href="#modalS" class="modal-trigger">
+          <div class="card-panel z-depth-5 hoverable">
+            <h5 style="font-size: 18px; font-weight: 450;" class="t-color">
+              2. Skill Development & Life Insurance Awareness Session
+            </h5>
+          </div>
+        </a>
+      </div>
+    </div>
+    <!-- Modal For Financial Ambassador-->
+    <div id="modalF" class="modal">
+      <div class="modal-content">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-panel z-depth-5">
+            <h5 class="center t-color">Please Fill Up the Form</h5>
+            <br />
+            <div class="input-field">
+              <i class="material-icons prefix t-color">account_circle</i>
+              <input type="text" name="username" required />
+              <label data-error="Invalid" data-success="Valid">Full Name</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">address</i>
+              <input type="text" name="address" required />
+              <label data-error="Invalid" data-success="Valid">Address</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">phone</i>
+              <input id="phone" name ="phone" type="tel" required />
+              <label data-error="Invalid" data-success="Valid" for="phone"
+                >Contact Number</label
+              >
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">email</i>
+              <input type="email" name="email" class="validate" required />
+              <label data-error="Invalid" data-success="Valid"
+                >Email Address</label
+              >
+            </div>
+            <p class="center margin-b">
+              Please Upload Your Latest CV, Certificates(Character, Marksheet),
+              Citizenship & Photo (Latest).
+            </p>
+            <!-- CV -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload CV</span>
+                <input type="file", name="cv" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Citizenship -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload Citizenship</span>
+                <input type="file", name="citizenship" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Certificates -->
+            <div class="file-field input-field">
+              <div class="btn butn">
+                <span>Upload Certificates</span>
+                <input type="file", name = "certificates" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <!-- Photo -->
+            <div class="file-field input-field margin-b">
+              <div class="btn butn">
+                <span>Upload Photo</span>
+                <input type="file", name="photo" />
+              </div>
+              <div class="file-path-wrapper">
+                <input type="text" class="file-path" />
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4 center-align"
+              >
+                <input
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn butn"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Modal For Skill Development & Life Insurance Awareness Session-->
+    <div id="modalS" class="modal">
+      <div class="modal-content">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-panel z-depth-5">
+            <h5 class="center t-color">Please Fill Up the Form</h5>
+            <br />
+            <div class="input-field">
+              <i class="material-icons prefix t-color">account_circle</i>
+              <input type="text" name="username" required />
+              <label data-error="Invalid" data-success="Valid">Full Name</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">address</i>
+              <input type="text" name="address" required />
+              <label data-error="Invalid" data-success="Valid">Address</label>
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">phone</i>
+              <input id="phone" type="tel", name="contact" required />
+              <label data-error="Invalid" data-success="Valid" for="phone"
+                >Contact Number</label
+              >
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix t-color">email</i>
+              <input type="email" name="email" class="validate" required />
+              <label data-error="Invalid" data-success="Valid"
+                >Email Address</label
+              >
+            </div>
+            <div class="row">
+              <div
+                class="col s4 offset-s4 m4 offset-m4 l4 offset-l4 xl4 offset-xl4 center-align"
+              >
+                <input
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn butn"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
